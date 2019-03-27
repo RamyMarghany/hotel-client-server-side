@@ -29,17 +29,21 @@ class Hotels extends Component {
                         starCount={5}
                         value={hotel.rating}
                     />
-                    <p className="hotel-amenities"><span>amenities:</span>{hotel.amenities.join(' ')}</p>
+                    <p className="hotel-amenities"><span>amenities:</span>{hotel.amenities.join(' - ')}</p>
                 </div>
                 <div className='secondly-information'>
-                    <p>{hotel.distance_to_venue}</p>
-                    <p>{hotel.price_category}</p>
-                    <button>view hotel</button>
+                    <p className="hotel-distance">
+                        <span className='distance'>distance to venue</span>
+                        {hotel.distance_to_venue}
+                        <span className="meter"> meters</span>
+                    </p>
+                    <p className="price"><span className="price-category">price category</span>{hotel.price_category}</p>
+                    <button className="view-hotel">view hotel</button>
                 </div>    
         </div>
     ))
     return (
-      <div>
+      <div className='hotels-wrapper'>
         {hotelItems}
       </div>
     )
