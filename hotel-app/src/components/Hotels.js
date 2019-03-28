@@ -8,8 +8,8 @@ class Hotels extends Component {
     }
     componentWillMount(){
         axios.get('http://localhost:3000/hotels')
-        .then(data => this.setState({
-            hotels:data
+        .then(res => this.setState({
+            hotels:res.data
         }));
         
     }
