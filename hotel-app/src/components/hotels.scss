@@ -6,7 +6,8 @@
     display: -webkit-flex;
     display: flex;
     margin-bottom: 25px;
-
+    max-height: 11em;
+    overflow: hidden;
     .image-container {
         flex: 1;
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import axios from 'axios';
 import './hotels.scss'
 class Hotels extends Component {
     state = {
         hotels: []
     }
     componentWillMount(){
-        fetch('http://localhost:3000/hotels')
-        .then(res =>res.json())
+        axios.get('http://localhost:3000/hotels')
         .then(data => this.setState({
             hotels:data
         }));
