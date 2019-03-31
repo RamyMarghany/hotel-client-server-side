@@ -3,6 +3,7 @@ import './App.scss';
 import HotelsList from './components/HotelsList'
 import HotelCard from './components/Hotel';
 import {BrowserRouter, Route} from 'react-router-dom'
+
 class App extends Component {
   render() {
     return (

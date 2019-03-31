@@ -1,7 +1,8 @@
 import React from 'react'
 import StarRatingComponent from 'react-star-rating-component';
-import RoomsList from './RoomsList'
-import '../hotels-details.scss'
+import RoomsList from './RoomsList';
+import ImageSlider from './ImageSlider';
+import '../hotels-details.scss';
 
 function HotelCard({hotel}) {
   return (
@@ -21,10 +22,12 @@ function HotelCard({hotel}) {
      
      </div>
      <p className="hotel-amenities"><span>amenities: </span> {hotel.amenities.join(' - ')}</p>
-        <img className="hotel-image"
+     <ImageSlider images={hotel.images}/>
+
+        {/* <img className="hotel-image"
           src={require(`../utilities/${hotel.images[0]}.jpg`)} 
           alt="{hotel.name}"
-        />
+        /> */}
       <p>{hotel.description}</p>
       
       </div>

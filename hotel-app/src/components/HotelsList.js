@@ -3,11 +3,23 @@ import HotelItem from './HotelItem';
 import Filters from './Filters';
 import axios from 'axios';
 import '../hotels-list.scss'
+
+const FILTERS  = {
+    amenities:(hotel,selectedAmenities) =>  selectedAmenities.every(amenity =>{
+        return hotel.amenities.indexOf(amenity) > -1 || selectedAmenities.length === 0
+    }),
+    price_category:(hotel, priceCatgory) => hotel.price_category.toLowerCase() === priceCatgory.toLowerCase() || !priceCatgory,
+    distance_to_venue: (hotel, distance_to_venue)=> parseInt(hotel.distance_to_venue)<= parseInt(distance_to_venue) || !distance_to_venue,
+}
 class HotelsList extends Component {
     state = {
         hotels: [],
         searchedHotels:[],
-        selectedAmenities:[]
+        filters:{
+            selectedAmenities:[],
+            price_category:'',
+            distance_to_venue:'',
+        }
     }
 
     componentDidMount(){
@@ -18,43 +30,45 @@ class HotelsList extends Component {
         }));
     }
 
-    handleSearch = e => {
-        this.setState({
-            searchedHotels:this.state.hotels.filter(hotel => {
-                return hotel.name.toString().toLowerCase().search(
-                e.target.value.toLowerCase()) !== -1;
-            })
+    commitHotelFilters = () =>{
+        const {filters:
+            {
+                selectedAmenities,
+                price_category,
+                distance_to_venue
+            }} = this.state
+        const filteredHotels = this.state.hotels.filter( hotel => {
+            return FILTERS.amenities(hotel, selectedAmenities) && FILTERS.price_category(hotel, price_category) && FILTERS.distance_to_venue(hotel,distance_to_venue)
         })
+        this.setState({searchedHotels : filteredHotels})
     }
 
-    handleSelectFilter = (text) =>{
-       this.setState({
-           searchedHotels: this.state.hotels.filter( hotel => {
-                return hotel.price_category === text;
-           })
-       })
+
+    selectCategory = (text) =>{
+       this.setState(prevState=>({filters:{
+            ...prevState.filters,
+            price_category: text
+       }}),this.commitHotelFilters)
     }
 
     handleCheckFilter = target => { 
-        if(target.checked){
-            this.setState(prevState =>({
-                selectedAmenities:[...prevState.selectedAmenities, target.value]
-            }), () =>{
-                console.log(this.state.selectedAmenities);
-
-            })
-        }
-        else{
-            this.setState(prevState=>{
-               const amenities =  [...prevState.selectedAmenities]
-               amenities.splice(amenities.indexOf(target.value),1)
+        this.setState(prevState =>{
+            let amenities =  [...prevState.filters.selectedAmenities]
+            if(!target.checked){
+                amenities.splice(amenities.indexOf(target.value),1)
+            }else{
+                amenities = [...prevState.filters.selectedAmenities, target.value]
+            }
             return {
-                selectedAmenities:amenities
-            }}, () =>{
-                console.log(this.state.selectedAmenities);
-            })
-        }
-        
+                ...prevState,
+                filters:{
+                    ...prevState.filters,
+                    selectedAmenities:amenities
+                }
+            }
+        }, () =>{
+            this.commitHotelFilters()
+        })
     }
 
     render() {
@@ -63,7 +77,7 @@ class HotelsList extends Component {
         <div>
             <Filters 
                 handleSearch = {this.handleSearch} 
-                handleSelectFilter = {this.handleSelectFilter}
+                handleSelectFilter = {this.selectCategory}
                 handleCheckFilter = {this.handleCheckFilter}
             />
             <HotelItem searchedHotels={searchedHotels} />

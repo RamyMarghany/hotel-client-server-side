@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
-
 const HotelItem = ({searchedHotels}) =>{
     const searchedHotelsList = searchedHotels.map(hotel => {
     return(

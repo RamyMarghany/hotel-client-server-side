@@ -1,44 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Filters extends Component {
+const Filters = props =>  {
    
-    state = {
-        priceCategory:''
-    }
-
-    handleSelectState = e => {
-        let index = e.nativeEvent.target.selectedIndex;
-        let text = e.nativeEvent.target[index].text
-        this.setState({
-            priceCategory:text,
-        })
-        this.props.handleSelectFilter(text)
-    }
-    
 
 
-  render() {
     return (
         <>
-            <input className='hotel-search-box' type="text" placeholder="search hotels..." label="Search Hotels" onChange={this.props.handleSearch}/>
+            <input className='hotel-search-box' type="text" placeholder="search hotels..." label="Search Hotels" onChange={props.handleSearch}/>
             <select 
-                    value={this.state.priceCategory}
-                    onChange={this.handleSelectState}
+                   
+                    onChange={e => props.handleSelectFilter(e.target.value)}
                     name='priceCategory'
                 >
                     <option value='low'>low</option>
                     <option value='medium'>medium</option>
                     <option value='high'>high</option>
             </select>
-            <label for="wifi">wifi</label>
-            <input type="checkbox" value="wifi" name="wifi" onChange={e =>{this.props.handleCheckFilter(e.target)}} />
+            <label for="free wifi">free wifi</label>
+            <input type="checkbox" value="free wifi" name="free wifi" onChange={e =>{props.handleCheckFilter(e.target)}} />
             <label for="spa">spa</label>
-            <input type="checkbox" value="spa" name="spa" onChange={e =>{this.props.handleCheckFilter(e.target)}} />
+            <input type="checkbox" value="spa" name="spa" onChange={e =>{props.handleCheckFilter(e.target)}} />
             <label for="gym">gym</label>
-            <input type="checkbox" value="gym" name="gym" onChange={e =>{this.props.handleCheckFilter(e.target)}} />
+            <input type="checkbox" value="gym" name="gym" onChange={e =>{props.handleCheckFilter(e.target)}} />
         </>
     )
-  }
+  
 }
 
 export default Filters

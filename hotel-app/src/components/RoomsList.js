@@ -22,7 +22,7 @@ class RoomsList extends Component {
         getRoomsByHotelID(hotelId)
         .then(res => {
             this.setState(()=>{
-            return {rooms: res}
+            return {rooms: res.sort((a,b)=>a.price_in_usd-b.price_in_usd)}
           })
         })
     }
