@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> matches the snapshot 1`] = `
+<div
+  className="header-nav"
+>
+  <Link
+    className="logo-link"
+    to="/"
+  >
+    <img
+      alt="{trivago}"
+      className="logo"
+      src="trivago-logo-1.png"
+    />
+  </Link>
+  <div
+    className="login-form"
+  >
+    <input
+      name="username"
+      onChange={[Function]}
+      placeholder="username"
+      type="text"
+      value=""
+    />
+    <input
+      name="password"
+      onChange={[Function]}
+      placeholder="password"
+      type="password"
+      value=""
+    />
+    <button
+      className="login-btn"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Login
+    </button>
+  </div>
+</div>
+`;
