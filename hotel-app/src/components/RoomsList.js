@@ -66,7 +66,10 @@ class RoomsList extends Component {
       <div className="rooms-list">
         <h3 className="rooms-title">hotel rooms</h3>
         {this.state.all ? roomsList : roomsList.slice(0,2) }
-        <button onClick={this.getAllRooms} className="show-all-rooms">Show all rooms</button>
+        {this.state.rooms.length>2 ?
+          (<button onClick={this.getAllRooms} className="show-all-rooms">Show all rooms</button>)
+          :(<p className="no-available-rooms">No more available rooms...</p>)
+        }
       </div>
     )
   }

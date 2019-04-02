@@ -14,7 +14,6 @@ class Filters extends Component  {
         <div className="filter-container">
             <h3 className="filter-title">Filter by:</h3>
             <hr/>
-
            <div className="price-filter">
             <p>price category</p>
             <select 
