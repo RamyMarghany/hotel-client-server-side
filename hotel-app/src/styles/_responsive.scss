@@ -1,0 +1,253 @@
+/* Medium & Large */
+@import "base";
+
+@media only screen and (min-width: 768px){
+    .landing-page{
+        width: 750px;
+    }
+   
+}
+
+/* Only Large */
+@media only screen and (min-width: 992px){
+    .landing-page{
+        width: 970px;
+        margin:auto;
+    }
+}
+
+/* Only X-Large */
+@media only screen and (min-width: 1200px){
+    .landing-page{
+        width: 1170px;
+    }
+}
+
+
+/* Only Medium */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    div.landing-page{
+        width: 768px;
+        padding: 9em 2em;
+    }
+    div.filter-container {
+        width: 100%;
+        position: static;
+        margin-bottom: 3em;
+    }
+    div.hotel-list {
+        width: 100%;
+        @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5));
+    }
+    div.hotel-item{
+        flex-direction: column;
+        max-height: unset;
+        height: auto;
+    }
+    div.hotel-item .main-information .hotel-amenities{
+        position: static;
+    }
+    div.hotel-item .secondly-information{
+        padding: 10px 16px 10px;
+        position: static;
+        text-align: left;
+        .view-hotel{
+            width: 95%;
+            margin: 1em auto 0;
+            display: block;
+            position: static;
+        }
+    }
+    div.confirmation-page{
+        width: 700px;
+    }
+
+    div.hotel-card{
+        width: 100%;
+    }
+    div.rooms-list{
+        margin-top: 2em;
+        width: 100%;
+        background: $white;
+    }
+}
+
+/* Only Small */
+@media only screen and (max-width: 768px ) {
+    div.logo{
+        width: 5em;
+        margin: auto;
+        display: block;
+    }
+    div.login{
+        float: unset;
+        text-align: center;
+    }
+    div.logout-form{
+        @extend div.login;
+        .username{
+            display: block;
+        }
+    } 
+    .landing-page{
+        width: 90%;
+    }
+    div.hotel-item{
+        flex-direction: column;
+        max-height: unset;
+        height: auto;
+    }
+    div.hotel-item .main-information .hotel-amenities{
+        position: static;
+    }
+    div.hotel-item .secondly-information{
+        padding: 10px 16px 10px;
+        position: static;
+        text-align: left;
+        .view-hotel{
+            width: 95%;
+            margin: 1em auto 0;
+            display: block;
+            position: static;
+        }
+    }
+    div.filter-container {
+        width: 100%;
+        position: static;
+        margin-bottom: 3em;
+    }
+    div.hotel-list {
+        width: 100%;
+        @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5));
+    }
+
+    div.hotel-details{
+        width: 94%;
+        margin: auto;
+        padding: 2em 1em;
+        margin: 4em auto;
+    }
+
+    div.hotel-card{
+        width: 100%;
+    }
+    div.rooms-list{
+        margin-top: 2em;
+        width: 100%;
+        background: $white;
+        padding: 0;
+        .book-room{
+            position: static;
+            width: 100%;
+        }
+        .show-all-rooms{
+            width:100%;
+        }
+    }
+    div.confirmation-page{
+        width: 94%;
+        padding: 2em 1em 4em;
+        .id{
+            text-align: left;
+            span{
+                display: block;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 736px) {
+    div.logout-form .username{
+        display: inline-block;
+        float: left;
+        margin: 1em 0;
+    }
+    button.logout-btn{
+        margin-right: 0;
+    }
+}
+
+/* Only X-Small */
+@media only screen and (max-width: 450px ) {
+    div.filter-container{
+        margin-top: 2em;
+    }
+    div.header-nav{
+        padding: 0.2em;
+        .logo{
+            display: block;
+            margin: 1em auto;
+        }
+        .login-form{
+            float: unset;
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            input{
+                margin-right: 0.2em;
+            }
+            .login-btn{
+                float: unset;
+                margin-right: 0;
+                display: block;
+                margin: 0.5em auto;
+            }
+        }
+        .logout-form{
+            float: unset;
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            .logout-btn{
+                float: unset;
+                margin-right: 0;
+                display: block;
+                margin: 0.5em auto;
+            }
+        }
+    }
+    
+}
+
+/* Only iPad portrait mode*/
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) 
+and (orientation : portrait)
+and (-webkit-min-device-pixel-ratio: 1)  {
+    div.hotel-card{
+        width: 100%;
+    }
+    div.rooms-list{
+        margin-top: 2em;
+        width: 100%;
+        background: $white;
+    }
+   div.hotel-item .main-information .distance{
+       display: inline-block;
+   }
+    .filter-container{
+        width:24%;
+    }
+    .hotel-list{
+        width:72%
+    }
+ }
+
+ @media only screen 
+and (min-width : 768px) 
+and (max-width : 1366px) 
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
+    div.rooms-list .book-room{
+        display: block;
+        width: 100%;
+        position: initial;
+    }
+    .filter-container{
+        width:22%;
+    }
+    .hotel-list{
+        width:72%
+    }
+}

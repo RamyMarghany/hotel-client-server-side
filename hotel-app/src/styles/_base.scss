@@ -1,0 +1,13 @@
+$custom-blue:#007fad ;
+$custom-yellow: #f48f01;
+$custom-red:#c94a30;
+$white:#fff;
+$light-gray:#f2f2f2;
+
+@mixin box-shadow($property) {
+    -webkit-box-shadow: $property;
+    -ms-box-shadow: $property;
+    box-shadow: $property;
+  }
+
+

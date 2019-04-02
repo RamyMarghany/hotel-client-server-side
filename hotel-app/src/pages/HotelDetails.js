@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import HotelCard from './HotelCard'
-import axios from 'axios';
-// import { resolve } from 'dns';
+import React, { Component } from 'react'
+import HotelCard from '../components/HotelCard'
+import axios from 'axios'
+import '../styles/main.scss'
+
 
   const getHotelByID = (hotelId) => {
     return new Promise((resolve, reject)=>{
@@ -12,7 +13,7 @@ import axios from 'axios';
         .catch(reject)
       })
     }
-    class Hotel extends Component {
+    class HotelDetails extends Component {
       state={
           hotel:{}
       }
@@ -35,4 +36,4 @@ import axios from 'axios';
       }
 }
 
-export default Hotel
+export default HotelDetails

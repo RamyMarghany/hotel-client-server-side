@@ -1,0 +1,341 @@
+@import "base";
+
+// landing page
+.landing-page {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 9em 0 4em;
+}
+
+
+//Header
+.header-nav {
+    background-color:$white;
+    position: fixed;
+    padding: 1.2em;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5));
+}
+
+//logo
+.logo{
+    position: relative;
+    top: 6px;
+    max-width: 5em;
+    .logo-link{
+        cursor: pointer;
+    }
+}
+
+
+//login buttons
+.login-btn{
+    float: right;
+    margin-right: 2em;
+    text-decoration: none;
+    text-align: center;
+    color: $white;
+    padding: 6px 25px 6px;
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 6px;
+    background: $custom-blue;
+}
+
+.logout-btn{
+    @extend .login-btn;
+    background: $custom-red;
+}
+
+//distance range input
+.distance-filter{
+    input[type=range] {
+        height: 38px;
+        -webkit-appearance: none;
+        margin: 10px 0;
+        width: 100%;
+      }
+      input[type=range]:focus {
+        outline: none;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        animate: 0.2s;
+        box-shadow: 1px 1px 1px $white;
+        background: $custom-red;
+        border-radius: 5px;
+        border: 1px solid $white;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px $white;
+        border: 1px solid #cccccc;
+        height: 30px;
+        width: 15px;
+        border-radius: 5px;
+        background: #FFFFFF;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -11px;
+      }
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        background: $custom-red;
+      }
+      input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        animate: 0.2s;
+        box-shadow: 1px 1px 1px $white;
+        background: $custom-red;
+        border-radius: 5px;
+        border: 1px solid $white;
+      }
+      input[type=range]::-moz-range-thumb {
+        box-shadow: 1px 1px 1px $white;
+        border: 1px solid #cccccc;
+        height: 30px;
+        width: 15px;
+        border-radius: 5px;
+        background: #FFFFFF;
+        cursor: pointer;
+      }
+      input[type=range]::-ms-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
+      input[type=range]::-ms-fill-lower {
+        background: #777;
+        border-radius: 10px;
+    }
+    input[type=range]::-ms-fill-upper {
+        background: #ddd;
+        border-radius: 10px;
+    }
+      input[type=range]::-ms-thumb {
+        margin-top: 1px;
+        box-shadow: 1px 1px 1px #000000;
+        border: 1px solid #000000;
+        height: 30px;
+        width: 15px;
+        border-radius: 5px;
+        background: $white;
+        cursor: pointer;
+      }
+      input[type=range]:focus::-ms-fill-lower {
+        background: #888;
+    }
+    input[type=range]:focus::-ms-fill-upper {
+        background: $light-gray;
+    }
+}
+
+// filter container
+.filter-container{
+    border-radius: 6px;
+    float: left;
+    width: 18%;
+    padding: 1em;
+    position: fixed;
+    background: $white;
+    @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5));
+}
+
+
+//hotel item
+.hotel-item{
+    @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5));
+    background-color: $light-gray;
+    display: -webkit-flex;
+    display: flex;
+    margin-bottom: 1.5em;
+    max-height: 13em;
+    height: 12em;
+    overflow: hidden;
+}
+
+//hotel card
+.hotel-card{
+    float: left;
+    width: 60%;
+    .hotel-name{
+        display: inline-block;
+        margin-bottom: 0.5em;
+        margin-top: 0;
+        margin-right: 0.5em;
+    }
+    .price {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.1em;
+        margin-bottom: 0.7em;
+        margin-top: 0;
+        display: inline-block;
+        margin-right: 1.7em;
+        span{
+            font-weight: 100;
+            font-size: 0.7em;
+            text-transform: capitalize;
+        }
+    }
+    .hotel-distance{
+        @extend .price;
+        margin-right: 0;
+    }
+   
+    .hotel-image{
+        width: 100%;
+        height: auto;
+    }
+    .hotel-amenities {
+        margin-top: 0;
+        text-transform: capitalize;
+        font-weight: 600;
+        font-size: 1em;
+        span{
+            font-weight: 100;
+            font-size: 0.9em;
+        }
+    }
+    .slider-container{
+        max-height: 40em;
+        .slick-slider,.slick-track{
+            max-height: 40em;
+        }
+        .slick-slide.slick-active.slick-current{
+            height: 40em;
+        }
+        .slick-slide >div{
+            height: 100%;
+        }
+        .slick-dots{
+            bottom:-30px;
+        }
+        .slick-dots li button:before{
+            font-size: 12px;
+            color: $light-gray;
+        }
+        .slick-prev:before, .slick-next:before{
+            color: $light-gray;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+            display: block;
+            height: 100%;
+        }
+    }
+    .hotel-description{
+        margin-top: 3em;
+    }
+}
+
+// hotels list
+.hotel-list{
+    float: right;
+    width: 68%;
+    background: $white;
+    padding: 1.5em;
+    border-radius: 6px;
+}
+
+// rooms list
+.rooms-list{
+    float: right;
+    width: 37%;
+    overflow: auto;
+    background: #f2f2f2;
+    padding: 2em;
+    .room-container{
+        position: relative;
+    }
+    .rooms-title{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.4em;
+        font-weight: 500;
+        padding-top: 0em;
+        margin-top: 0;
+        padding-bottom: 1em;
+        margin-bottom: 2em;
+        position: relative;
+        &:before{
+            content: '';
+            width: 5em;
+            height: 0.08em;
+            background: $light-gray;
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            bottom: 0.5em;
+        }
+    }
+    .room-name {
+        margin-bottom: 0.5em;
+        font-weight: 400;
+        font-size: 1.35em;
+        text-transform: capitalize;
+    }
+    .room-description {
+        margin-top: 0;
+        font-size: 0.9em;
+        margin-bottom: 2em;
+    }
+    .room-price {
+        margin-bottom: 0.5em;
+        font-size: 1.2em;
+        font-weight: 500;
+        text-transform: capitalize;
+        span{
+            font-weight: 100;
+            font-size: 0.8em;
+        }
+    }
+    .room-capacity{
+        @extend .room-price;
+        margin-top: 0;
+    }
+    .book-room {
+        text-align: center;
+        background: $custom-yellow;
+        text-transform: capitalize;
+        color: $white;
+        padding: 0.5em 2em;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 1.1em;
+        position: absolute;
+        right: 0;
+        bottom: 1.75em;
+    }
+    .room-container{
+        border-bottom: 1px solid #8e8e8e;
+        margin-bottom: 1.5em;
+        padding-bottom: 1.2em;
+    }
+
+    .show-all-rooms{
+        width: 12em;
+        padding: 0.7em;
+        font-size: 1em;
+        border-radius: 6px;
+        background-color: $custom-red;
+        color: $white;
+        font-weight: 500;
+        margin: 0.2em auto;
+        display: block;
+        margin-top: 2em;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,235 @@
+
+@import "base";
+@import "layout";
+@import "component";
+@import "responsive";
+
+.App{
+    background: $light-gray;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.login-form{
+    float: right;
+    input{
+        height: 3em;
+        border-radius: 5px;
+        background: $light-gray;
+        margin-right: 0.7em;
+        border: 1px solid #ccc;
+        padding: 1em;
+    }
+    
+}
+
+.logout-form{
+    @extend .login-form;
+    .username{
+        display: inline-block;
+        margin: 0 1em;
+        text-transform: capitalize;
+        font-size: 1em;
+        font-weight: 600;
+        vertical-align: sub;
+        font-style: italic;
+        span{
+            font-weight: 200;
+            font-style: initial;
+        }
+    }
+}
+
+// filter list
+.filter-container{
+    .filter-title {
+        margin: 0 0 0.7em 0;
+    }
+    &>div:not(:last-of-type){
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1.2em;
+    }
+    p{
+        margin-bottom: 0.3em;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+    .price-filter{
+        select{
+            width: 100%;
+            height: 2.5em;
+            font-size: 0.8em;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+    }
+   
+   .amenities-filter{
+        fieldset{
+            border: none;
+            margin: 0;
+            padding: 0.5em 0.3em;
+       }
+       .feature-item{
+           margin-bottom: 0.5em;
+       }
+       input[type="checkbox"]{
+        float: left;
+       }
+       label{
+           cursor: pointer;
+           padding-left: 0.3em;
+           text-transform: capitalize;
+       }
+   }
+}
+
+.full-hotel-details{
+    padding: 7em 0 5em;
+}
+
+//hotel details
+.hotel-details {
+    width: 80%;
+    margin: auto;
+    background: $white;
+    border-radius: 6px;
+    padding: 2em;
+    @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5));
+    overflow: hidden;
+}
+
+// hotel item
+.hotel-item {
+    .image-container {
+        flex: 3;
+
+        img {
+            max-width: 100%;
+            min-height: 100%;
+        }
+    }
+
+    .main-information {
+        flex: 5;
+        padding: 0 15px;
+        position: relative;
+        &>a {
+            font-size: 1.3em;
+            margin-top: 0.4em;
+            color: #000;
+            text-decoration: none;
+        }
+
+        h3{
+            margin-top: 0.4em;
+            margin-bottom: 0;
+        }
+        .hotel-distance {
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 0.4em;
+        }
+        .distance {
+            font-weight: 100;
+            font-size: 0.6em;
+            text-transform: capitalize;
+            display: block;
+        }
+        
+        .hotel-amenities {
+            font-weight: 400;
+            text-transform: capitalize;
+            position: absolute;
+            bottom: 0.8em;
+            margin-bottom: 0;
+            margin-right: 2em;
+            span {
+                display: block;
+                font-weight: 100;
+            }
+        }
+    }
+
+    .secondly-information {
+        text-align: right;
+        padding: 0 10px 10px;
+        flex: 2;
+        position: relative;
+        
+       
+        .price {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 0.4em;
+        }
+        .price-category {
+            font-weight: 100;
+            display: block;
+            font-size: 0.6em;
+            text-transform: capitalize;
+        }
+        .view-hotel{
+            width: 90%;
+            margin: 0 auto;
+            background: $custom-yellow;
+            text-transform: capitalize;
+            color: $white;
+            padding: 0.5em 2em;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1em;
+            position: absolute;
+            bottom: 0.5em;
+            right: 0.5em;
+            text-align: center;
+        
+        }
+    }
+}
+
+// not found hotel message
+.not-found-hotel{
+    text-align: center;
+    padding: 2em;
+    @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5));    
+    img{
+        height: auto; 
+        width: auto; 
+        max-width: 200px; 
+        max-height: 200px;
+        margin: 0 auto;
+        display: block
+    }
+    p{
+        text-transform: capitalize;
+        margin: 1.5em;
+        font-weight: 400;
+    }
+}
+
+// Confirmation Page
+.confirmation-page{
+    width: 60em;
+    background: $white;
+    margin: 12em auto;
+    padding: 2em 2em 4em;
+    border-radius: 6px;
+    @include  box-shadow(0 1px 4px rgba(41, 51, 57, 0.5)); 
+    text-align: center;
+    .confirmation-title {
+        text-transform: uppercase;
+        margin-bottom: 3em;
+        color: $custom-red;
+    }
+    .id{
+        text-transform: capitalize;
+        font-weight: 700;
+        span{
+            font-weight: 300;
+        }
+    }
+}
